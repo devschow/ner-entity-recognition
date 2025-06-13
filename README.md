@@ -142,3 +142,14 @@ ner-entity-recognition/
 └── README.md # Project documentation
 
 ```
+--- 
+
+## ⚠️ License
+
+This project was completed as part of an academic assignment.
+
+You may **not** copy, reuse, or distribute any part of this repository without explicit permission.
+
+See the [LICENSE](LICENSE) file for full details.
+
+© Devarshi Choudhury, University of Liverpool, 2025. All rights reserved.
