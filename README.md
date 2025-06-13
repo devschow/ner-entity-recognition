@@ -1,18 +1,18 @@
-# 🧠 Named Entity Recognition (NER) with Neural Networks
+# 🧠 Named Entity Recognition (NER) with BiLSTM and Transformer Models
 
-This project implements a deep learning solution for the **Named Entity Recognition (NER)** task using a custom dataset. The goal is to identify and classify named entities in text into predefined categories, enabling structured understanding of unstructured language data.
+This project implements a deep learning solution for the **Named Entity Recognition (NER)** task using both a **BiLSTM** and a **custom Transformer** model. The goal is to classify each word in a sentence into predefined entity types, enabling structured extraction of information from text.
 
 ---
 
 ## 📚 Project Overview
 
-Named Entity Recognition is a key component in many **Natural Language Processing (NLP)** applications such as:
+Named Entity Recognition is a core task in **Natural Language Processing (NLP)** used in:
 
 - Information Retrieval
 - Question Answering
 - Text Summarization
 
-In this assignment, a neural network is trained to identify and classify tokens in sentences into one of five entity categories:
+In this project, each word is tagged with one of the following entity types:
 
 | Label     | Meaning             |
 |-----------|---------------------|
@@ -24,33 +24,102 @@ In this assignment, a neural network is trained to identify and classify tokens 
 
 ---
 
-## 🧠 Task Description
+## 🧠 Task Details
 
-- 🔡 **Dataset**: 1696 sentences, each word labeled with its entity type
-- 📑 **Format**: Two columns per line – `word` and `label` (space-separated), sentences separated by blank lines
-- 🧪 **Goal**: Train a neural network to predict entity tags for words in unseen text
+- 🔡 **Dataset**: 1696 sentences (custom dataset)
+- 🧾 **Format**: `word` + `entity` (space-separated), sentences separated by blank lines
+- 🎯 **Goal**: Predict the correct entity for each token using deep learning models
 
 ---
 
-## 🛠️ Approach
+## 🧰 Approach
 
-- **Task**: Sequence labeling using word-level entity classification
-- **Model**: BiLSTM and Transformer-based neural network classifiers
-- **Preprocessing**:
+- **Models**: BiLSTM and custom Transformer architectures
+- **Loss Function**: Categorical Cross Entropy
+- **Preprocessing**: 
   - Tokenization
   - Padding & masking
   - Label encoding
-- **Evaluation**:
+- **Evaluation Metrics**: 
   - Accuracy
-  - F1 Score
-  - Precision / Recall
+  - Precision / Recall / F1 Score (macro and weighted)
+  - Confusion Matrix
+  - Loss over epochs/batches
 
 ---
 
-## 📊 Results
+## 🔍 Model Comparison Summary
 
-> *plots to be entered*
+Based on evaluation, the **BiLSTM model outperformed** the custom Transformer, showing better generalization and entity recognition across classes.
 
+| Model        | Macro F1 Score | Weighted F1 | Accuracy | Notes                             |
+|--------------|----------------|-------------|----------|-----------------------------------|
+| **BiLSTM**   | **0.3800**     | 0.8797      | ~0.43    | Strong generalization & stability |
+| Transformer  | 0.3267         | 0.2551      | 0.2533   | Overfitting observed              |
+
+---
+
+## 📊 BiLSTM Evaluation
+
+### 📉 Test Loss per Batch
+
+<p align="center">
+  <img src="plots/BiLSTM_Loss_variance_per_batch.jpg" width="600" alt="BiLSTM Test Loss">
+</p>
+
+*Loss variance per batch for the test dataset using the BiLSTM model.*
+
+---
+
+### 🧩 Confusion Matrix
+
+<p align="center">
+  <img src="plots/BiLSTM_CF.jpg" width="600" alt="BiLSTM Confusion Matrix">
+</p>
+
+*Confusion matrix showing predicted vs true entity labels.*
+
+---
+
+### 📋 Classification Report
+
+<p align="center">
+  <img src="plots/BiLSTM_Performance_Metrics.jpg" width="600" alt="BiLSTM Metrics Table">
+</p>
+
+*Precision, recall, and F1-score for each entity label from the BiLSTM model.*
+
+---
+
+## 🔬 Transformer Evaluation
+
+### 📈 Training vs Validation Loss
+
+<p align="center">
+  <img src="plots/Transformer_training_loss_per_epoch_validation_set.jpg" width="600" alt="Transformer Loss Curve">
+</p>
+
+*Training and validation loss across 15 epochs. Overfitting was observed after epoch 6.*
+
+---
+
+### 🧪 Hyperparameter Grid Search
+
+<p align="center">
+  <img src="plots/Transformer_gridserach_hyperparameters.jpg" width="700" alt="Transformer Grid Search">
+</p>
+
+*Top 5 hyperparameter combinations for the Transformer model ranked by F1 Score and Accuracy.*
+
+---
+
+### 📋 Classification Report
+
+<p align="center">
+  <img src="plots/Transformer_classifcation_report.jpg" width="700" alt="Transformer Classification Report">
+</p>
+
+*Final classification report showing the Transformer model’s precision, recall, and F1 scores.*
 
 ---
 
