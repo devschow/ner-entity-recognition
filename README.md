@@ -22,6 +22,8 @@ In this project, each word is tagged with one of the following entity types:
 | `I-MISC`  | Miscellaneous        |
 | `O`       | Outside (non-entity) |
 
+> ⚠️ **Note**: The dataset used in this project was provided by the University of Liverpool for academic use only and is not included in this repository. It follows the CoNLL-2003 NER format with custom-labeled content.
+
 ---
 
 ## 🧠 Task Details
@@ -125,3 +127,18 @@ Based on evaluation, the **BiLSTM model outperformed** the custom Transformer, s
 
 ## 🗂️ Project Structure
 
+```
+ner-entity-recognition/
+├── ner_model.ipynb # Main notebook with both models and evaluations
+├── ner_dataset.txt # ⚠️ Not included due to academic restrictions
+├── plots/
+│ ├── BiLSTM_Loss_variance_per_batch.jpg
+│ ├── BiLSTM_CF.jpg
+│ ├── BiLSTM_Performance_Metrics.jpg
+│ ├── Transformer_training_loss_per_epoch_validation_set.jpg
+│ ├── Transformer_gridserach_hyperparameters.jpg
+│ └── Transformer_classifcation_report.jpg
+├── LICENSE # Custom academic license
+└── README.md # Project documentation
+
+```
